@@ -10,4 +10,8 @@ export class ProductService {
     async addNewProduct(dto: CreateProductDto): Promise<Product> {
         return this.productRepository.addNewProduct(dto);
     }
+
+    async getProducts(): Promise<Product[]>{
+        return this.productRepository.getProducts()
+    }
 }

@@ -1,4 +1,4 @@
-import {Body, Controller, Post, Req, Res, UsePipes, ValidationPipe} from "@nestjs/common";
+import {Body, Controller, Get, Post, Req, Res, UsePipes, ValidationPipe} from "@nestjs/common";
 import { ProductService } from "./product.service";
 import { CreateProductDto } from "./dto/create-product.dto";
 import { Request, Response } from "express";
@@ -20,4 +20,16 @@ export class ProductController {
             return res.status(404).send("Error adding cart!!");
         }
     }
+
+    @Get("/getProducts")
+    async getProducts(@Res() res: Response){
+        try {
+            const products = await this.productService.getProducts()
+            return res.status(200).json(products)
+        } catch (e){
+            console.log(e)
+            return res.status(500).send("Error getting products")
+        }
+    }
+
 }

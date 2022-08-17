@@ -16,4 +16,11 @@ export class ProductRepository {
 
         return rows[0];
     }
+
+    async getProducts(): Promise<Product[]>{
+        const sql = "select * from product"
+        const {rows} = await this.db.query(sql)
+
+        return rows
+    }
 }

@@ -10,8 +10,4 @@ import { AuthMiddleware } from "../auth/middleware/auth.middleware";
     controllers: [ProductController],
     providers: [ProductService, ProductRepository]
 })
-export class ProductModule implements NestModule {
-    public configure(consumer: MiddlewareConsumer) {
-        consumer.apply(AuthMiddleware).exclude("product/addNewProduct").forRoutes(ProductController);
-    }
-}
+export class ProductModule {}
