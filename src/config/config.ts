@@ -2,7 +2,7 @@ require("dotenv").config();
 
 type AppConfig = {
     env: {
-        port: number;
+        appPort: number;
     };
     db: {
         user: string
@@ -28,7 +28,7 @@ export function GetConfig(): AppConfig{
 
     return {
         env: {
-            port: port
+            appPort: port
         },
         db: {
             user: dbUser,
